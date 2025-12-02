@@ -30,15 +30,12 @@ export default function TransactionDetailScreen({ route, navigation }) {
 
   if (!transaction) return null;
 
-  const totalServicePrice =
-    transaction.services?.reduce(
-      (sum, sv) => sum + sv.price * (sv.quantity || 1),
-      0,
-    ) || 0;
+  // const totalServicePrice =
+  //   transaction.price;
 
-  const discount =
-    (transaction.priceBeforePromotion || 0) -
-    (transaction.priceAfterPromotion || 0);
+  // const discount =
+  //   (transaction.priceBeforePromotion) -
+  //   (transaction.price );
 
   return (
     <View style={styles.container}>
@@ -97,7 +94,7 @@ export default function TransactionDetailScreen({ route, navigation }) {
 
             <View style={styles.rowBetween}>
               <Text style={styles.label}>Total</Text>
-              <Text style={styles.bold}>{formatMoney(totalServicePrice)}</Text>
+              <Text style={styles.bold}>{formatMoney(transaction.price)}</Text>
             </View>
           </Card.Content>
         </Card>
@@ -112,7 +109,7 @@ export default function TransactionDetailScreen({ route, navigation }) {
 
             <View style={styles.rowBetween}>
               <Text style={styles.label}>Discount</Text>
-              <Text style={{ color: 'red' }}>-{formatMoney(discount)}</Text>
+              <Text style={{ color: 'red' }}>{formatMoney(transaction.priceBeforePromotion - transaction.price)}</Text>
             </View>
 
             <Divider style={{ marginVertical: 10 }} />
@@ -120,7 +117,7 @@ export default function TransactionDetailScreen({ route, navigation }) {
             <View style={styles.rowBetween}>
               <Text style={styles.totalLabel}>Total payment</Text>
               <Text style={styles.totalPay}>
-                {formatMoney(transaction.priceAfterPromotion)}
+                {formatMoney(transaction.price)}
               </Text>
             </View>
           </Card.Content>
