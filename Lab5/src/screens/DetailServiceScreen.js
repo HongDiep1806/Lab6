@@ -86,7 +86,6 @@ function DetailServiceScreen({ navigation, route }) {
         <Appbar.BackAction onPress={handleBackAction} color="white" />
         <Appbar.Content title="Service Detail" titleStyle={styles.title} />
 
-        {/* Popup Menu */}
         <View style={{ position: "absolute", top: 0, right: 0 }}>
           <Menu
             visible={menuVisible}

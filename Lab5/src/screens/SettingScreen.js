@@ -8,17 +8,14 @@ export default function SettingScreen({ navigation }) {
     await AsyncStorage.removeItem("token");
     await AsyncStorage.removeItem("user");
 
-    navigation.replace("Login"); // quay lại login và reset stack
+    navigation.replace("Login"); 
   };
 
   return (
     <View style={styles.container}>
-      {/* HEADER */}
       <Appbar.Header style={styles.header}>
         <Appbar.Content title="Setting" titleStyle={styles.headerTitle} />
       </Appbar.Header>
-
-      {/* BODY */}
       <View style={styles.body}>
         <Button
           mode="contained"

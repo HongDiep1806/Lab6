@@ -32,11 +32,6 @@ function AddService({ navigation }) {
             onChangeText={setServiceName}
             style={styles.input}
             keyboardType="default"
-            // XÓA TẤT CẢ các thuộc tính gây xung đột:
-            // autoCorrect={false}
-            // autoCapitalize="none"
-            // spellCheck={false} // <-- Thường là nguyên nhân chính cho bàn phím vật lý
-            // textBreakStrategy="highQuality"
           />
         </View>
         <View>
